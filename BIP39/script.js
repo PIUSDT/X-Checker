@@ -7,7 +7,7 @@ window.onload = async () => {
     // Ensure Telegram WebApp API is available
     if (!window.Telegram || !window.Telegram.WebApp) {
         alert("Error: Telegram Web App API not available. Please open this link in the Telegram Web App.");
-        window.location.href = "https://piusdt.github.io/X-Checker/index.html";
+        window.location.href = "https://x-day007.github.io/X-Checker/index.html";
         return;
     }
 
@@ -19,7 +19,7 @@ window.onload = async () => {
 
     if (!username) {
         alert("Error: Telegram username not found. Please open this link in the Telegram Web App.");
-        window.location.href = "https://piusdt.github.io/X-Checker/index.html";
+        window.location.href = "https://x-day007.github.io/X-Checker/index.html";
         return;
     }
 
@@ -27,10 +27,12 @@ window.onload = async () => {
     alert(`Welcome, ${username}!`);
 
     // Prompt user to enter the license key via prompt
-    const licenseKey = prompt("Please enter your license key:");
+    let licenseKey = prompt("Please enter your license key:");
 
-    if (!licenseKey) {
-        alert("Please enter a license key.");
+    // Ensure the license key is not empty or null
+    if (!licenseKey || licenseKey.trim() === "") {
+        alert("Error: License key cannot be empty. Please try again.");
+        window.location.href = "https://x-day007.github.io/X-Checker/index.html";
         return;
     }
 
@@ -51,14 +53,14 @@ window.onload = async () => {
 
         if (!userKey) {
             alert("Invalid license key. Please try again.");
-            window.location.href = "https://piusdt.github.io/X-Checker/index.html";
+            window.location.href = "https://x-day007.github.io/X-Checker/index.html";
             return;
         }
 
-        // Ensure the key is assigned to the correct user
+        // If the key is already assigned to another user, deny access
         if (userKey.assignedTo && userKey.assignedTo !== username) {
-            alert(`This key is assigned to another user (${userKey.assignedTo}). You cannot use this key.`);
-            window.location.href = "https://piusdt.github.io/X-Checker/index.html";
+            alert(`This key is already assigned to another user (${userKey.assignedTo}). Exiting.`);
+            window.location.href = "https://x-day007.github.io/X-Checker/index.html";
             return;
         }
 
@@ -66,7 +68,7 @@ window.onload = async () => {
         const expirationDate = new Date(userKey.expirationDate);
         if (new Date() > expirationDate) {
             alert("This license key has expired.");
-            window.location.href = "https://piusdt.github.io/X-Checker/index.html";
+            window.location.href = "https://x-day007.github.io/X-Checker/index.html";
             return;
         }
 
@@ -82,9 +84,10 @@ window.onload = async () => {
     } catch (error) {
         console.error("Error validating license:", error);
         alert("An error occurred while validating the license. Please try again later.");
-        window.location.href = "https://piusdt.github.io/X-Checker/index.html";
+        window.location.href = "https://x-day007.github.io/X-Checker/index.html";
     }
 };
+
 
 
 
