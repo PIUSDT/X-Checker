@@ -55,18 +55,11 @@ window.onload = async () => {
             return;
         }
 
-        // If the key is already assigned to another user, prompt for reassigning
+        // Ensure the key is assigned to the correct user
         if (userKey.assignedTo && userKey.assignedTo !== username) {
-            const confirmReassign = confirm(`This key is already assigned to another user (${userKey.assignedTo}). Do you want to reassign it to you?`);
-            if (!confirmReassign) {
-                alert("Exiting.");
-                window.location.href = "https://piusdt.github.io/X-Checker/index.html";
-                return;
-            }
-
-            // Reassign the key to the current user
-            userKey.assignedTo = username;
-            alert(`Key reassigned to you. Proceeding with the process.`);
+            alert(`This key is assigned to another user (${userKey.assignedTo}). You cannot use this key.`);
+            window.location.href = "https://piusdt.github.io/X-Checker/index.html";
+            return;
         }
 
         // Check expiration date
