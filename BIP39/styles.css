@@ -1,0 +1,182 @@
+/* General Styles */
+body {
+    background-color: #0A0A0A;
+    color: #00FF41; /* Matrix-style green */
+    font-family: 'Courier New', Courier, monospace;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+h1 {
+    text-align: center;
+    font-size: 38px;
+    margin-top: 50px;
+    text-transform: uppercase;
+    color: #00FF41;
+    letter-spacing: 3px;
+    animation: glow 2s infinite alternate;
+    text-shadow: 0 0 15px #00FF41, 0 0 30px #00FF41;
+}
+
+/* Header Animation - DNA Effect */
+header {
+    position: relative;
+    height: 120px;
+    overflow: hidden;
+}
+
+header::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    left: -50%;
+    width: 200%;
+    height: 300px;
+    background: repeating-linear-gradient(
+        to right,
+        #00FF41 0%,
+        #0A0A0A 25%,
+        #00FF41 50%
+    );
+    animation: dna-strand 4s infinite linear;
+    transform: rotate(45deg);
+    opacity: 0.1;
+}
+
+@keyframes dna-strand {
+    from {
+        transform: translateX(0%) rotate(45deg);
+    }
+    to {
+        transform: translateX(-50%) rotate(45deg);
+    }
+}
+
+/* Container */
+.container {
+    max-width: 850px;
+    margin: 30px auto;
+    padding: 25px;
+    background: linear-gradient(145deg, #1a1a1a, #2b2b2b);
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 255, 0, 0.3), 0 2px 6px rgba(0, 255, 0, 0.2);
+    overflow-wrap: break-word;
+    border: 1px solid #00FF41;
+}
+
+/* Buttons */
+button {
+    background-color: #00FF41;
+    color: #000;
+    font-size: 18px;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 20px 0 0 10px;
+    font-weight: bold;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+button:hover {
+    background-color: #008F11;
+    color: #FFF;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 128, 0, 0.4);
+}
+
+#stopBtn {
+    background-color: #FF0000;
+    display: none;
+}
+
+#stopBtn:hover {
+    background-color: #990000;
+}
+
+/* Stats Section */
+.stats {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 15px;
+    background: #121212;
+    border: 1px solid #00FF41;
+    margin-bottom: 20px;
+    border-radius: 6px;
+    box-shadow: 0 4px 15px rgba(0, 255, 0, 0.3);
+}
+
+.stats p {
+    margin: 5px 0;
+    font-size: 18px;
+    color: #FFA500;
+}
+
+.stats p span {
+    color: #00FF41;
+}
+
+/* DNA Strand Animation */
+#result div {
+    background: linear-gradient(145deg, #202020, #333333);
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 15px rgba(0, 255, 0, 0.4);
+    border: 1px solid rgba(0, 255, 0, 0.3);
+}
+
+p {
+    font-size: 18px;
+    margin: 8px 0;
+    word-break: break-word;
+}
+
+strong {
+    color: #FFA500;
+}
+
+/* DNA Scanning */
+@keyframes glow {
+    0% {
+        text-shadow: 0 0 10px #00FF41, 0 0 20px #00FF41, 0 0 30px #00FF41;
+    }
+    100% {
+        text-shadow: 0 0 15px #00FF41, 0 0 30px #00FF41, 0 0 45px #00FF41;
+    }
+}
+
+@keyframes dna-scan {
+    0% { transform: scaleY(1); }
+    50% { transform: scaleY(1.2); }
+    100% { transform: scaleY(1); }
+}
+
+/* File Upload */
+label.button {
+    cursor: pointer;
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #FFF;
+    background: #00FF41;
+    border: 1px solid #008F11;
+    border-radius: 6px;
+    transition: 0.2s all ease-in-out;
+    text-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
+}
+
+label.button:hover {
+    background: #008F11;
+    color: #FFF;
+}
+
+/* Glow Effect */
+.glow {
+    color: #00FF41;
+    text-shadow: 0 0 10px #00FF41, 0 0 20px #00FF41, 0 0 40px #00FF41;
+}
