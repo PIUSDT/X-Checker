@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi-Chain Balance Checker</title>
+    <!-- Reference local ethers.js file -->
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/ethers@5.7.0/dist/ethers.umd.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Multi-Chain Balance Checker</h1>
+    </header>
+    <main>
+        <div class="stats">
+            <p><strong>Checked Count:</strong> <span id="checkedCount">0</span></p>
+            <p><strong>Found Count:</strong> <span id="foundCount">0</span></p>
+            <p><strong>Last Scanned :</strong> <span id="lastScan">None</span></p>
+            <p><strong>Developer:</strong> <span id="dev1">@xss_id</span></p>
+        </div>
+        <div>
+            <label for="seedFile" class="button button-primary">Upload Seed File</label>
+            <input type="file" id="seedFile" style="display: none;">
+        </div>
+        <div>
+            <button id="checkBtn" class="button button-primary">Start Checking</button>
+            <button id="stopBtn" class="button button-secondary" style="display: none;">Stop Checking</button>
+        </div>
+        <div id="result"></div>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
